@@ -1,23 +1,22 @@
 package domain;
-
-import java.util.Random;
-
 public class Car {
 
-    private final String name;
-    private int position;
+    private final Name name;
+    private Position position;
 
     public Car(String name) {
-        this.name = name.trim();
+
+        this.name = new Name(name);
+        this.position = new Position();
     }
 
     public void move(MovingStrategy movingStrategy) {
         if (movingStrategy.movable()) {
-            position++;
+            position.move();
         }
     }
 
-    public int getPosition() {
+    public Position getPosition() {
         return position;
     }
 }
